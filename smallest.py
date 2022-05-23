@@ -1,6 +1,6 @@
 class Solution:
     def findMissing(self,arr, size): 
-    # your code goes here
+    
         mini = 1
         for i in range(size):
             if arr[i]>0:
