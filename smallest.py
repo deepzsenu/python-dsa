@@ -7,7 +7,7 @@ class Solution:
                 p = (arr[i]-1)%size
                 if arr[p]>arr[i] or arr[p]<=0:
                     arr[p], arr[i] = arr[i], arr[p]
-                    
+                                        
         for i in range(size):
             if arr[i] == mini:
                 mini+=1
