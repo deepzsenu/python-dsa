@@ -16,20 +16,26 @@ class MyQueue:
         return (self.sz == 0)
     
     def getFront(self):
-        return self.front.key
+        if self.front == None:
+            return None
+        else:
+            return self.front.key
     
     def getRear(self):
-        return self.rear.key
+        if self.rear == None:
+            return None
+        else:
+            return self.rear.key
     
     def enqueue(self, x):
         temp =  Node(x)
         
         if self.rear == None:
-            return self.front == temp
+            self.front = temp
         else:
-            self.rear.next == temp
-            self.rear = temp
-            self.sz +=1
+            self.rear.next = temp
+        self.rear = temp
+        self.sz +=1
             
     def deQueue(self):
         if self.front == None:
@@ -54,3 +60,6 @@ Q.enqueue(30)
 Q.enqueue(40)
 Q.enqueue(50)
 
+j = Q.getFront()
+h = Q.getRear()
+print(j,h, Q.size())
