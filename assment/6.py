@@ -9,13 +9,13 @@ def decodeIP(hex):
     print(IPadd)
     if ip1>1 and ip1<128:
         print("A")
-    if ip1>=128 and ip1<191:
+    if ip1>=128 and ip1<=191:
         print("B")
-    if ip1>=192 and ip1<223:
+    if ip1>=192 and ip1<=223:
         print("C")
-    if ip1>=224 and ip1<239:
+    if ip1>=224 and ip1<=239:
         print("D")
-    if ip1>=240 and ip1<255:
+    if ip1>=240 and ip1<=255:
         print("E")
     
     
