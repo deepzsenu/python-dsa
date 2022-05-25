@@ -50,8 +50,6 @@ class MyQueue:
             return res        
         
         
-        
-
 Q = MyQueue()
 
 Q.enqueue(10)
