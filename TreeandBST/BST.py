@@ -144,6 +144,62 @@ def deleteInBST(root, k):
                 root.data = succ
                 root.right = deleteInBST(root.right, succ.data)
     return root
+def floorCeilBSTHelper(root, key):
+     
+    global floor, ceil
+ 
+    while (root):
+        if (root.data == key):
+            ceil = root.data
+            floor = root.data
+            return
+        if (key > root.data):
+            floor = root.data
+            root = root.right
+        else:
+            ceil = root.data
+            root = root.left
+            
+def floorCeilBST(root, key):
+     
+    global floor, ceil
+ 
+    # Variables 'floor' and 'ceil'
+    # are passed by reference
+    floor = -1
+    ceil = -1
+ 
+    floorCeilBSTHelper(root, key)
+ 
+    print(key, floor, ceil)
+    
+               
+def cielInBST(root, x):
+    res = None
+    while root!=None:
+        if root.data == x:
+            return root
+        elif root.data < x:
+            root = root.right           
+        else:
+            root = root.left
+            res = root          
+            
+    return res
+
+def floorInBST(root, x):
+    res = None
+    while root!=None:
+        if root.data == x:
+            return root
+        elif root.data<x:
+            root = root.left           
+        else:
+            res = root
+            root = root.left
+            
+    return res
+            
 
 
 def inOrder(root):
@@ -192,6 +248,16 @@ print()
 postOrder(root)
 print()
 print()
+
+print("floor  of 52")
+j  = floorInBST(root,52)
+print(j.data)
+print("ceil of 52")
+j  = cielInBST(root,51)
+print(j.data)
+
+print("floor and ceil of 52")
+floorCeilBST(root, 52)
 
 deleteNode(root, 55)
 print()
