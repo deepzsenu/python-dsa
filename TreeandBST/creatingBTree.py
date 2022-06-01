@@ -68,6 +68,24 @@ def inOrderIterative(root):
             st.append(curr)
             curr = curr.left
             
+from collections import deque
+def levelOrder(root):
+    #code here 
+    j = []
+    if root == None:
+        return []
+    q = deque()
+    q.append(root)
+    while len(q)>0:
+        node = q.popleft()
+        j.append(node.val)
+        if node.left != None:
+            q.append(node.left)
+        if node.right != None:
+            q.append(node.right)
+            
+    return j
+            
 def preOrderIterative(root):
     if root  == None:
         return

@@ -221,6 +221,24 @@ def postOrder(root):
         postOrder(root.left)
         postOrder(root.right)
         print(root.data, end=" ")
+        
+from collections import deque
+def levelOrder(root):
+    #code here 
+    j = []
+    if root == None:
+        return []
+    q = deque()
+    q.append(root)
+    while len(q)>0:
+        node = q.popleft()
+        j.append(node.val)
+        if node.left != None:
+            q.append(node.left)
+        if node.right != None:
+            q.append(node.right)
+            
+    return j
 
 
 j = [50, 10, 20, 15, 27, 45, 80, 60, 70]
