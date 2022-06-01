@@ -64,17 +64,30 @@ def insertInBSTiterative(root, k):
 
     return root
 
+def getSucc(curr):
+    while curr != None:
+        curr = curr.left
+    return curr
+
 def deleteInBST(root, k):
-    if root ==None:
+    if root == None:
         return
-    if root.data>k :
+    elif root.data > k :
         root.left = deleteInBST(root.left, k)
         
     elif root.data<k :
         root.right = deleteInBST(root.right, k)
         
     else:
-        
+        if root.left == None:
+            return root.right
+        elif root.right == None:
+            return root.left
+        else:
+            succ = getSucc(root.right)
+            root.data = succ
+            root.right = deleteInBST(root.right, succ)
+    return root
         
 
 
@@ -121,4 +134,11 @@ inOrder(root)
 print()
 preOrder(root)
 print()
+
 postOrder(root)
+print()
+print()
+
+deleteInBST(root, 55)
+print()
+inOrder(root)
