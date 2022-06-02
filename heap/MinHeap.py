@@ -1,8 +1,13 @@
 import math
 
+
 class MyMinHeap:
-    def __init__(self):
-        self.arr = []
+    def __init__(self, l=[]):
+        self.arr = l
+        i = (len(l)-2)//2
+        while i >= 0:
+            self.minHeapify(i)
+            i -= 1
 
     def parent(self, i):
         return (i-1)//2
@@ -50,43 +55,37 @@ class MyMinHeap:
     def decreaseKey(self, i, x):
         arr = self.arr
         arr[i] = x
-        while i !=0 and arr[self.parent(i)]>arr[i]:
+        while i != 0 and arr[self.parent(i)] > arr[i]:
             p = self.parent(i)
             arr[i], arr[p] = arr[p], arr[i]
-            i=p
-            
-            
+            i = p
 
     def delet(self, i):
         n = len(self.arr)
-        if i>= n:
-            return 
+        if i >= n:
+            return
         else:
             self.decreaseKey(i, -math.inf)
             self.extractMIn()
-            
+
     def buildHeap(self):
         pass
-            
+
     def printHeap(self):
         arr = self.arr
         for i in range(len(arr)):
-            print(arr[i], end = " ")
+            print(arr[i], end=" ")
         print()
-            
 
-arr = [10, 70, 80,90, 20, 30, 40, 50, 60]
-l =0
+
+arr = [10, 70, 80, 90, 20, 30, 40, 50, 60]
+l = 0
 print("arr before heapify")
 print(arr)
-j = MyMinHeap()
-for i in arr:
-    j.insert(i)
-j.printHeap()
+j = MyMinHeap(arr)
 
+j.printHeap()
 j.delet(2)
 j.printHeap()
 print(j.extractMIn())
 j.printHeap()
-
-
