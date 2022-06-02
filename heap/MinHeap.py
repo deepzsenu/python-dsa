@@ -6,8 +6,7 @@ class MyMinHeap:
         i = (len(l)-2)//2
         while i >= 0:
             self.minHeapify(i)
-            i -= 1
-
+            i -= 1           
     def parent(self, i):
         return (i-1)//2
 
@@ -66,9 +65,6 @@ class MyMinHeap:
         else:
             self.decreaseKey(i, -math.inf)
             self.extractMIn()
-
-    def buildHeap(self):
-        pass
 
     def printHeap(self):
         arr = self.arr
