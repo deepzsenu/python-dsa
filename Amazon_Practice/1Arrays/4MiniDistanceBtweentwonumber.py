@@ -14,22 +14,45 @@ two distances between x and y, which are
     """
 
 """METHOD ONE"""
+
+
 class Solution:
     def minDist(self, arr, n, x, y):
+        
         if x not in arr or y not in arr:
             return -1
-        
-        min_dist = 10000000000000 # or math.inf
+
+        min_dist = 10000000000000  # or math.inf
         x_index = -1
         y_index = -1
-        
-        for idx , item in enumerate(arr):
+
+        for idx, item in enumerate(arr):
             if item == x:
                 x_index = idx
             elif item == y:
                 y_index = idx
-            if x_index != -1 and y_index !=-1:
+            if x_index != -1 and y_index != -1:
                 curr_dis = abs(y_index - x_index)
                 min_dist = min(min_dist, curr_dis)
-                
+
         return min_dist
+
+
+"""This is also same as the above one """
+
+
+class Solution:
+    def minDist(self, arr, n, x, y):
+        if(x not in arr or y not in arr):
+            return -1
+
+        mini = 10000000000000000000
+        a, b = -1, -1
+        for i in range(n):
+            if(arr[i] == x):
+                a = i
+            if(arr[i] == y):
+                b = i
+            if(a != -1 and b != -1):
+                mini = min(mini, abs(a-b))
+        return mini
