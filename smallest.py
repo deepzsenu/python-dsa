@@ -11,6 +11,7 @@ class Solution:
         for i in range(size):
             if arr[i] == mini:
                 mini+=1
+                
         return mini
 
 ob = Solution()
