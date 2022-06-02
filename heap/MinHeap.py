@@ -1,6 +1,5 @@
 import math
 
-
 class MyMinHeap:
     def __init__(self, l=[]):
         self.arr = l
@@ -83,9 +82,11 @@ l = 0
 print("arr before heapify")
 print(arr)
 j = MyMinHeap(arr)
-
+print("\narr AFTER heapify")
 j.printHeap()
+print("\nDELETING 2ND ELEMENT")
 j.delet(2)
 j.printHeap()
+print("\nEXTRACTING MIN")
 print(j.extractMIn())
 j.printHeap()
