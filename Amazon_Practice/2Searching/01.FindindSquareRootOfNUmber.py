@@ -55,3 +55,12 @@ class Solution:
             else:
                 h = mid-1                
         return ans
+    
+"""One more easy approach with time complexity logn"""
+
+class Solution:
+    def floorSqrt(self, x): 
+        a =1
+        while(a*a<=x):
+            a+=1
+        return a-1
