@@ -48,18 +48,10 @@ from collections import Counter
 class Solution:
     def majorityElement(self, A, N):
         #Your code here
-        cnt = Counter(A)
-        
-        ma = max(cnt.values())
-        su  = 0
-        co = 0
-        for i,v in cnt.items():
-            if su < v:
-                su = v
-                co = i
-                
-        if su>(N//2):
-            return co
-            
-        else:
-            return -1
+        a=Counter(A)
+        b=N/2
+        for i in a.keys():
+            if a[i]>b:
+                return i
+        return -1
+
