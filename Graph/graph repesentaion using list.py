@@ -9,6 +9,7 @@ def printGraph(adj):
         
         
 from  collections import deque
+
 # for cyclic and connected undirected graph        
 def bfsVersionOne(adj, s):
     visited = [False]*len(adj)
@@ -64,8 +65,43 @@ def BfsconnectedComponent(adj):
         if visited[u] == False:
             res+=1
             bfsconnecteed(adj,u,visited)            
-    return res               
+    return res  
+
+
+def DfsRec(adj, s, visited):
+    visited[s] = True
+    print(s, end = " ")
+    for u in adj[s]:
+        if visited[u] == False:
+            DfsRec(adj, u, visited)             
         
+def Dfs(adj, s):
+    visited = [False]*len(adj)
+    DfsRec(adj,s,visited)
+    
+def DfsdisconnectedGraph(adj):
+    visited = [False]*len(adj)
+    for u in range(len(adj)):
+        if visited[u] == False:
+            DfsRec(adj, u, visited)
+            
+def DfsRecCount(adj, s, visited):
+    visited[s] = True
+    for u in adj[s]:
+        if visited[u] == False:
+            DfsRecCount(adj, u, visited)
+            
+def countcomponentInDfs(adj):
+    visited = [False]*len(adj)
+    res = 0
+    for u in range(len(adj)):
+        if visited[u] == False:
+            res+=1
+            DfsRecCount(adj, u, visited)            
+    return res
+    
+
+    
     
         
 v = 4
@@ -83,3 +119,9 @@ Bfsin(adj)
 
 
 print(BfsconnectedComponent(adj))
+
+Dfs(adj,2)
+print()
+DfsdisconnectedGraph(adj)
+print("")
+print(countcomponentInDfs(adj))
