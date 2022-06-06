@@ -44,10 +44,48 @@ Expected Auxiliary Space: O(min(n,m)).
 Constraints:
 1 ≤ n, m ≤ 105
 1 ≤ a[i], b[i] ≤ 105"""
+# """1. Uisng array""" (m*logn)
+class Solution:
+    def NumberofElementsInIntersection(self,a, b, n, m):
+        #return: expected length of the intersection array.
+        set_ = []
+        for i in range(n):
+            if a[i] in b and a[i] not in set_  :
+                set_.append((a[i]))
+                
+        for i in range(m):
+            if b[i] in a and b[i] not in set_:
+                set.append((b[i]))
+                
+        return len(set_)
+    
+"""2. comparing elements"""
 
+class Solution:
+    def NumberofElementsInIntersection(self,a, b, n, m):
+        #return: expected length of the intersection array.
+        a.sort()
+        b.sort()
+        i = 0
+        j = 0
+        se= []
+        while (i < n and j < m):
+     
+            if (a[i] > b[j]):
+                j += 1
+     
+            else:
+                if (b[j] > a[i]):
+                    i += 1
+     
+                else:
+                    se.append(a[i])
+                    i += 1
+                    j += 1
+        return len(se)
 
-"""1. Using SET Properties"""
-
+"""3. Using SET Properties"""
+#O(N)
 class Solution:
     def NumberofElementsInIntersection(self,a, b, n, m):
         #return: expected length of the intersection array.
