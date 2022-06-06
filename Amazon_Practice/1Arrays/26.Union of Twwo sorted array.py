@@ -61,7 +61,7 @@ class Solution:
         :param m: size of sorted array b
         :return:  The union of both arrays as a list
         '''
-        # code here 
+        # code here  
         
         s= set()
         
