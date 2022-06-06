@@ -56,7 +56,7 @@ Constraints:
 1 <= A[i] <= P"""
 
 
-"""Using dictionaries"""
+"""Using Dictionaries"""
 from collections import Counter as cnt
 class Solution:
     #Function to count the frequency of all elements from 1 to N in the array.
@@ -71,5 +71,27 @@ class Solution:
                 arr[j] = m[i]
             j+=1
             
+            
+"""SEcond approach with Constant space"""      
+class Solution:
+    #Function to count the frequency of all elements from 1 to N in the array.
+    def frequencyCount(self, arr, N, P):
+        # code here
+        counti = 0
+        for i in range(N):
+            if arr[i]>N:
+                arr[i] = 0
+                counti+=1
+                
+            else:
+                arr[i]-=1
+            
+        for i in range(N):
+            arr[arr[i]%N]+=N
+            
+        for i in range(N):
+            if i ==0:
+                arr[i] = arr[i]-(N*counti)
+            arr[i]//=N     
             
             
