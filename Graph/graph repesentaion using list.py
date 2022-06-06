@@ -46,7 +46,26 @@ def Bfsin(adj):
             bfs(adj,u,visited)            
     print()
                 
-            
+def bfsconnecteed(adj, s, visited):
+    
+    q = deque()
+    q.append(s)
+    visited[s] = True
+    while q:
+        s = q.popleft()
+        for u in adj[s]:
+            if visited[u] == False:
+                q.append(u)
+                visited[u] = True   
+def BfsconnectedComponent(adj):
+    visited = [False]*len(adj)
+    res = 0
+    for u in range(len(adj)):
+        if visited[u] == False:
+            res+=1
+            bfsconnecteed(adj,u,visited)            
+    return res               
+        
     
         
 v = 4
@@ -61,3 +80,6 @@ printGraph(adj)
 
 bfsVersionOne(adj, 3)
 Bfsin(adj)
+
+
+print(BfsconnectedComponent(adj))
