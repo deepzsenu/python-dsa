@@ -71,3 +71,55 @@ class Solution:
             s.add(i)
             
         return sorted(s)
+    
+
+class Solution:
+    
+    #Function to return a list containing the union of the two arrays.
+    def mergeArrays(self,a,b,n,m):
+        '''
+        :param a: given sorted array a
+        :param n: size of sorted array a
+        :param b: given sorted array b
+        :param m: size of sorted array b
+        :return: The union of both arrays as a list
+        
+        
+        '''
+        # code here 
+        arr = []
+        i =0
+        j = 0
+        while i<n and j<m:
+            x = a[i]
+            y =b[j]
+            if x<y:
+                arr.append(x)
+                while i<n and a[i] == x:
+                    i+=1
+            elif x == y:
+                arr.append(x)
+                while i<n and a[i] ==x:
+                    i+=1
+                while j<m and b[j] == y:
+                    j+=1
+                    
+            else:
+                arr.append(y)
+                while j<m and b[j] == y:
+                    j+=1
+                    
+        while i<n:
+            x = a[i]
+            arr.append(x)
+            while i<n and a[i] == x:
+                i+=1
+                
+        while j<m:
+            y = b[j]
+            arr.append(y)
+            while j<m and b[j] == y:
+                j+=1
+        
+            
+        return  arr
