@@ -57,4 +57,51 @@ class Solution:
                     
         return count
     
+"""OPtimized approach using merge sort"""
+
+class Solution:
+    def inversionCount(self, arr, n):
+        def mergeSort(arr, temp, left, right):
+            if left >= right:
+                return 0
+                
+            mid = (left + right) // 2
+                
+            return mergeSort(arr, temp, left, mid) + mergeSort(arr, temp, mid + 1, right) + merge(arr, temp, left, mid, right)
+            
+        def merge(arr, temp, left, mid, right):
+            i = left
+            j = mid + 1
+            ind = i
+            count = 0
+            
+            while i <= mid and j <= right:
+                if arr[i] <= arr[j]:
+                    temp[ind] = arr[i]
+                    i += 1
+                else:
+                    temp[ind] = arr[j]
+                    j += 1
+                    count += mid - i + 1
+                ind += 1
+            
+            while i <= mid:
+                temp[ind] = arr[i]
+                i += 1
+                ind += 1
+                
+            while j <= right:
+                temp[ind] = arr[j]
+                j += 1
+                ind += 1
+            
+            for i in range(left, right + 1):
+                arr[i] = temp[i]
+            
+            return count
+            
+        temp = n * [0]
+        
+        return mergeSort(arr, temp, 0, n - 1)
+    
     
