@@ -1,0 +1,19 @@
+def getMaxBeauty(a):
+    j = []
+    curr = 0
+    for i in range(len(a)):
+        curr+=a[i]
+        j.append(curr)
+    print(j)
+    for i in range(len(j)):
+        if i%2==1:
+            j[i] = -(j[i])                
+    return sum(j)
+
+a = [4,1,2,4]
+
+print(getMaxBeauty(a))
+            
+            
+            
+        
