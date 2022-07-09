@@ -38,3 +38,40 @@ Constraints:
 1 <= K <= N <= 105
 1 <= A[i] <= 105 , for each valid i"""
 
+from collections import  Counter as cn
+"""Complexity O(N-k)*K"""
+def count(arr, n, k):
+    ans  = []
+    for i in range((n-k)+1):
+        m = arr[i:i+k]
+        # print(m)
+        mas = cn(m)
+        # print(mas, len(mas))
+        ans.append(len(mas))
+        
+    return ans
+        
+arr = [1,2,1,3,4,2,3]
+n = 7
+k = 4
+print(count(arr, n,k))
+"""Optimal solution with O(N)"""
+class Solution:
+    def countDistinct(self, A, N, K):
+        # Code here
+        ans  = []
+        dis= {}
+        j = 0
+        for i in range(N):
+            if A[i] not in dis:
+                dis[A[i]] = 1
+            else:
+                dis[A[i]]+=1
+            if i>=k-1:
+                ans.append(len(dis.keys()))
+                if dis[A[j]]>1:
+                    dis[A[j]] -=1
+                else:
+                    del dis[A[j]]
+                j+=1
+        return ans
