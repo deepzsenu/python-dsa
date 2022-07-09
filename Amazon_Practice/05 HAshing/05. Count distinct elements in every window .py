@@ -39,7 +39,7 @@ Constraints:
 1 <= A[i] <= 105 , for each valid i"""
 
 from collections import  Counter as cn
-"""Complexity O(N-k)*K"""
+"""Complexity O(N-k)*K """
 def count(arr, n, k):
     ans  = []
     for i in range((n-k)+1):
