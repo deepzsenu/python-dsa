@@ -53,9 +53,9 @@ class Solution:
             if a[i] in b and a[i] not in set_  :
                 set_.append((a[i]))
                 
-        for i in range(m):
+        """for i in range(m):
             if b[i] in a and b[i] not in set_:
-                set.append((b[i]))
+                set.append((b[i]))"""
                 
         return len(set_)
     

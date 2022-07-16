@@ -27,17 +27,34 @@ Constraints:
 
 def rotate(matrix): 
     #code here
+    print(matrix)
     m = len(matrix)
     
     for i in range(m):
         for j in range(i):
-            matrix[j][i], matrix[i][j] = matrix[i][j], matrix[j][i]
+            matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+            # matrix[j][i], matrix[i][j] = matrix[i][j], matrix[j][i]
+            
+    print(matrix)
     
     for i in range(m):
         l = 0
         h = m-1
         while(l<h):
-            matrix[l][i], matrix[h][i] = matrix[h][i], matrix[l][i]
+            matrix[i][l],matrix[i][h] = matrix[i][h], matrix[i][l]
+            
+            # matrix[l][i], matrix[h][i] = matrix[h][i], matrix[l][i]
             l+=1
             h-=1
+            
+    print(matrix)
+            
+            
+n = int(input())
+mat = []
+for i in range(n):
+    m = list(map(int, input().split()))
+    mat.append(m)
+    
+rotate(mat)
             

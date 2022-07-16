@@ -7,7 +7,6 @@ def insertionSort(alist):
                 alist[j+1] = alist[j]
                 j = j-1
             alist[j+1] = x
-    
 
 arr = [2,1,5,4,3,7,8,9]
 insertionSort(arr)

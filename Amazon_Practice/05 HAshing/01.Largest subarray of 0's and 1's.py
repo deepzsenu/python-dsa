@@ -38,7 +38,6 @@ class Solution:
     def maxLen(self,arr, N):
         # code here
         hashmap = {0:-1}
-        total_sum = 0
         for i in range(N):
             if arr[i]== 0:
                 arr[i] = -1
