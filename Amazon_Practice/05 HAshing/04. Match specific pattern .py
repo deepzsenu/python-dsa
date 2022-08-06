@@ -44,7 +44,7 @@ def findSpecificPattern(Dict, pattern):
     for word in Dict:
         if len(word) == l and check(word) == h:
             j.append(word)
-            
+
     return j
 
 
