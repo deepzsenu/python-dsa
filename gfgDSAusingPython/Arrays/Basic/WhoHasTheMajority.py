@@ -45,3 +45,24 @@ Constraints:
 1 <= n <= 103
 0 <= arri , x , y <= 10"""
 
+class Solution:
+    #Function to find element with more appearances between two elements in an array.    
+    def majorityWins(self, arr, n, x, y):
+        # code here
+        c1 = 0
+        c2 = 0
+        for i in arr:
+            if i == x:
+                c1+=1
+            if i == y:
+                c2+=1
+        if c1>c2:
+            return x
+        elif(c1 == c2):
+            if x<y:
+                return x
+            else:
+                return y
+        else:
+            return y
+
