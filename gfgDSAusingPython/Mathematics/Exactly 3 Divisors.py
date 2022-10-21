@@ -35,7 +35,7 @@ Expected Auxilliary Space :  O(1)
 
 Constraints :
 1 <= N <= 109"""
-
+import math
 class Solution:
     def isPrime(self,N):
         # code here
