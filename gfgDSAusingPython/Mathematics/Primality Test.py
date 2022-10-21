@@ -50,3 +50,21 @@ class Solution:
             if N % i == 0 :
                 return False
         return True
+
+def isPrime(N):
+        # code here
+        if N < 2 : 
+            return False
+        if N <= 3 : 
+            return True 
+        if N % 2 == 0 or N % 3 == 0 : 
+            return False
+        for i in range(5,(int(math.sqrt(N)))+1):
+            if N % i == 0 :
+                return False
+        return True
+
+print(isPrime(43))
+print(isPrime(57))
+print(isPrime(73))
+print(isPrime(101))
