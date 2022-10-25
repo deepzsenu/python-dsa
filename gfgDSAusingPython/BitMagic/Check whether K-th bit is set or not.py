@@ -33,7 +33,6 @@ Constraints:
 0 ≤ K ≤ floor(log2(N) + 1)"""
 #method 1 Using leftsift
 class Solution:
-    
     #Function to check if Kth bit is set or not.
     def checkKthBit(self, n,k):
 

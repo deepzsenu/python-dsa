@@ -24,3 +24,17 @@ Expected Auxiliary Space: O(Log(N)) (Recursive).
 Constraints:
 1 <= n <= 108
 """
+
+
+class Solution:
+    def isPalin(self,N):
+        #code here
+        n = str(N)
+        if (len(n)<=1):
+            return 1
+        else:
+            if n[0] == n[-1]:
+                return self.isPalin(n[1:-1])
+
+            else:
+                return 0

@@ -7,12 +7,9 @@ def minMaxSLS(arr):
             min_ = arr[i]
         if arr[i]>max_:
             max_ = arr[i]
-            
+
     return min_, max_
 #compare in pairs
 def minMaxCIP(arr):
     min_ = 0
     pass
-
-
-    
