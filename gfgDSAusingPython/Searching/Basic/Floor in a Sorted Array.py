@@ -33,7 +33,6 @@ Constraints:
 
 class Solution:
     #User function Template for python3
-    
     #Complete this function
     def findFloor(self,A,N,X):
         #Your code here
@@ -45,7 +44,6 @@ class Solution:
         h = N-1
         while l<=h:
             mid = (l+h)//2
-            
             if A[mid] <X:
                 l = mid+1
             elif A[mid]>X:
