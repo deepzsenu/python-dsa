@@ -2,7 +2,6 @@
 You are given an integer N. You need to convert all zeroes of N to 5.
 
 Example 1:
-
 Input:
 N = 1004
 Output: 1554
